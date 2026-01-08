@@ -11,9 +11,10 @@ public enum MoodType
 public class MoodSystem : MonoBehaviour
 {
    public MoodType CurrentMood { get; private set; }
+   public event Action<MoodType> OnMoodChanged;
     void Start()
     {
-        OnMoodChanged(MoodType.Calm);
+        ChangeMood(MoodType.Calm);
     }
 
     public void ChangeMood(MoodType newMood)
@@ -21,27 +22,9 @@ public class MoodSystem : MonoBehaviour
         if (CurrentMood == newMood)
             return;
         CurrentMood = newMood;
-        
+        OnMoodChanged?.Invoke(CurrentMood);
     }
-
-    private void OnMoodChanged(MoodType mood)
-    {
-        switch (mood)
-        {
-            case MoodType.Happy:
-                Debug.Log("Mood: Happy");
-                break;
-            case MoodType.Calm:
-                Debug.Log("Mood: Calm");
-                break;
-            case MoodType.Mad:
-                Debug.Log("Mood: Mad");
-                break;
-            case MoodType.Sick:
-                Debug.Log("Mood: Sick");
-                break;
-        }
-    }
+    
 
     // Update is called once per frame
     void Update() 
