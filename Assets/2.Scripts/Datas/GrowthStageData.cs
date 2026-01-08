@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[System.Serializable]
-public class GrowthStageData : MonoBehaviour
+[CreateAssetMenu(menuName="Growth Stage Data")]
+public class GrowthStageData : ScriptableObject
 {
     public GrowthStage stage;
     public int maxFood;
