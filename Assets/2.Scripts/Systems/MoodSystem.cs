@@ -14,7 +14,7 @@ public class MoodSystem : MonoBehaviour
    public event Action<MoodType> OnMoodChanged;
     void Start()
     {
-        ChangeMood(MoodType.Calm);
+        ChangeMood(MoodType.Mad);
     }
 
     public void ChangeMood(MoodType newMood)
