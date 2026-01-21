@@ -6,6 +6,25 @@ public class Logger : MonoBehaviour
     [SerializeField] private MoodSystem moodSystem;
     [SerializeField] private GrowthStageSystem growthStageSystem;
     [SerializeField] private CoinSystem coinSystem;
+    private StateController stateController;
+
+    void Start()
+    {
+        stateController = GetComponent<StateController>();
+        stateController.ChangeState(new AroundState());
+        Invoke(nameof(ToEat), 3f);
+        Invoke(nameof(ToPlay), 10f);
+    }
+
+    private void ToEat()
+    {
+        stateController.ChangeState(new EatState());
+    }
+
+    private void ToPlay()
+    {
+        stateController.ChangeState(new PlayState());
+    }
 
     void OnEnable()
     {
@@ -45,7 +64,6 @@ public class Logger : MonoBehaviour
     public void AddCoinButton()
     {
         coinSystem.AddCoin(100);
-        Debug.Log($"Coins added to {coinSystem.CurrentCoin}");
         
     }
 
