@@ -13,6 +13,7 @@ public class CoinSystem : MonoBehaviour
         
         CurrentCoin += amount;
         OnCoinChanged?.Invoke(CurrentCoin);
+        Debug.Log($"현재 소지액: {CurrentCoin}");
     }
 
     public bool SpendCoin(int amount)

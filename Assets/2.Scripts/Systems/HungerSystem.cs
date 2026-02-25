@@ -1,26 +1,27 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class HungerSystem : MonoBehaviour
 {
     public int CurrentFood { get; private set; }
     public int MaxFood { get; private set; }
     
-    [SerializeField] private GrowthStageSystem growthStageSystem;
+    [SerializeField] private GrowthSystem growthSystem;
 
     void OnEnable()
     {
-        growthStageSystem.OnStageChanged += OnStageChange;
+        growthSystem.OnStageChanged += OnChange;
     }
 
     void OnDisable()
     {
-        growthStageSystem.OnStageChanged -= OnStageChange;
+        growthSystem.OnStageChanged -= OnChange;
     }
 
-    void OnStageChange(GrowthStage stage)
+    void OnChange(GrowthStage stage)
     {
-        var data = growthStageSystem.GetCurrentStageData();
-        MaxFood = data.maxFood;
+        var data = growthSystem.GetCurrentStageData();
+        MaxFood = data.maxHunger;
         CurrentFood = MaxFood;
     }
 

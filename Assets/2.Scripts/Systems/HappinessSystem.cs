@@ -1,25 +1,26 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class HappinessSystem : MonoBehaviour
 {
    public int CurrentHappiness { get; private set; }
    public int MaxHappiness { get; private set; }
    
-   [SerializeField] private GrowthStageSystem growthStageSystem;
+   [FormerlySerializedAs("growthStageSystem")] [SerializeField] private GrowthSystem growthSystem;
 
    void OnEnable()
    {
-      growthStageSystem.OnStageChanged += OnStageChange;
+      growthSystem.OnStageChanged += OnChange;
    }
 
    void OnDisable()
    {
-      growthStageSystem.OnStageChanged -= OnStageChange;
+      growthSystem.OnStageChanged -= OnChange;
    }
 
-   void OnStageChange(GrowthStage stage)
+   void OnChange(GrowthStage stage)
    {
-      var data = growthStageSystem.GetCurrentStageData();
+      var data = growthSystem.GetCurrentStageData();
       MaxHappiness = data.maxHappiness;
       CurrentHappiness = MaxHappiness;
    }

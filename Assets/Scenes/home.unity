@@ -441,14 +441,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1788617397}
-        m_TargetAssemblyTypeName: Logger, Assembly-CSharp
-        m_MethodName: AddCoinButton
-        m_Mode: 1
+      - m_Target: {fileID: 1804492509}
+        m_TargetAssemblyTypeName: CoinSystem, Assembly-CSharp
+        m_MethodName: AddCoin
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -589,7 +589,7 @@ GameObject:
   - component: {fileID: 688886932}
   - component: {fileID: 688886933}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: '[Obj]tamagotchi'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -707,9 +707,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 688886927}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eb35a327616b994d9376b8fbbcdfd24, type: 3}
+  m_Script: {fileID: 11500000, guid: a23693aef31a8c44e9b6e1c092371783, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CoinSystem
+  m_EditorClassIdentifier: Assembly-CSharp::StateController
 --- !u!1 &1406736005
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,13 +803,14 @@ GameObject:
   - component: {fileID: 1788617393}
   - component: {fileID: 1788617392}
   - component: {fileID: 1788617397}
+  - component: {fileID: 1788617398}
   m_Layer: 0
   m_Name: Logger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1788617392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -834,7 +835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8074c3bc4a4865944a9d2df96f29dd81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growthStageSystem: {fileID: 1788617395}
+  growthSystem: {fileID: 1788617395}
 --- !u!114 &1788617394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -847,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7da3c2b8d7c3da24aaa338d0e6d29ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growthStageSystem: {fileID: 1788617395}
+  growthSystem: {fileID: 1788617395}
 --- !u!114 &1788617395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,8 +894,81 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moodSystem: {fileID: 688886929}
-  growthStageSystem: {fileID: 688886932}
-  coinSystem: {fileID: 688886933}
+  growthSystem: {fileID: 688886932}
+  coinSystem: {fileID: 0}
+--- !u!114 &1788617398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788617391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a23693aef31a8c44e9b6e1c092371783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StateController
+--- !u!1 &1804492506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1804492508}
+  - component: {fileID: 1804492507}
+  - component: {fileID: 1804492509}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1804492507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804492506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f580058c9e0a3419d0905b196e395a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  stateController: {fileID: 688886933}
+  growthSystem: {fileID: 688886932}
+  moodSystem: {fileID: 688886929}
+  coinSystem: {fileID: 1804492509}
+--- !u!4 &1804492508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804492506}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1804492509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804492506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eb35a327616b994d9376b8fbbcdfd24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoinSystem
 --- !u!1 &1957528247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,3 +1118,4 @@ SceneRoots:
   - {fileID: 688886931}
   - {fileID: 563861715}
   - {fileID: 1406736008}
+  - {fileID: 1804492508}

@@ -5,7 +5,7 @@ public enum MoodType
 {
     Happy,
     Calm,
-    Mad,
+    Hungry,
     Sick
 }
 public class MoodSystem : MonoBehaviour
@@ -14,7 +14,7 @@ public class MoodSystem : MonoBehaviour
    public event Action<MoodType> OnMoodChanged;
     void Start()
     {
-        ChangeMood(MoodType.Mad);
+        ChangeMood(MoodType.Hungry);
     }
 
     public void ChangeMood(MoodType newMood)

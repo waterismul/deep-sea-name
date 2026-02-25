@@ -1,10 +1,11 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Logger : MonoBehaviour
 {
     [SerializeField] private MoodSystem moodSystem;
-    [SerializeField] private GrowthStageSystem growthStageSystem;
+    [FormerlySerializedAs("growthStageSystem")] [SerializeField] private GrowthSystem growthSystem;
     [SerializeField] private CoinSystem coinSystem;
     private StateController stateController;
 
@@ -31,8 +32,8 @@ public class Logger : MonoBehaviour
         if(moodSystem != null)
             moodSystem.OnMoodChanged += OnMoodChanged;
 
-        if (growthStageSystem != null)
-            growthStageSystem.OnStageChanged += OnStageChanged;
+        if (growthSystem != null)
+            growthSystem.OnStageChanged += OnChanged;
 
         if (coinSystem != null)
             coinSystem.OnCoinChanged += OnCoinChanged;
@@ -44,8 +45,8 @@ public class Logger : MonoBehaviour
         if(moodSystem != null)
             moodSystem.OnMoodChanged -= OnMoodChanged;
         
-        if (growthStageSystem != null)
-            growthStageSystem.OnStageChanged -= OnStageChanged;
+        if (growthSystem != null)
+            growthSystem.OnStageChanged -= OnChanged;
         
         if (coinSystem != null)
             coinSystem.OnCoinChanged -= OnCoinChanged;
@@ -56,7 +57,7 @@ public class Logger : MonoBehaviour
         Debug.Log($"Mood changed to {moodType}");
     }
 
-    void OnStageChanged(GrowthStage stage)
+    void OnChanged(GrowthStage stage)
     {
         Debug.Log($"Stage changed to {stage}");
     }

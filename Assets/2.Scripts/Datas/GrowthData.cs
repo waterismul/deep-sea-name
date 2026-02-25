@@ -1,9 +1,9 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName="Growth Stage Data")]
-public class GrowthStageData : ScriptableObject
+public class GrowthData : ScriptableObject
 {
     public GrowthStage stage;
-    public int maxFood;
+    public int maxHunger;
     public int maxHappiness;
 }
