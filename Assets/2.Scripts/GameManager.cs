@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GrowthSystem growthSystem;
     [SerializeField] private MoodSystem moodSystem;
     [SerializeField] private CoinSystem coinSystem;
+    
     private void Start()
     {
         stateController.ChangeState(new AroundState());
@@ -26,4 +27,6 @@ public class GameManager : MonoBehaviour
     {
         stateController.ChangeState(new PlayState());
     }
+
+   
 }

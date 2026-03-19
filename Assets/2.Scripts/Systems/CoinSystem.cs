@@ -5,6 +5,7 @@ public class CoinSystem : MonoBehaviour
 {
     public int CurrentCoin { get; private set; }
     public event Action<int> OnCoinChanged;
+    public Action<int> OnCoinUIChanged;
 
     public void AddCoin(int amount)
     {
@@ -12,6 +13,7 @@ public class CoinSystem : MonoBehaviour
         
         CurrentCoin += amount;
         OnCoinChanged?.Invoke(CurrentCoin);
+        OnCoinUIChanged?.Invoke(CurrentCoin);
         Debug.Log($"현재 소지액: {CurrentCoin}");
     }
 
@@ -30,4 +32,8 @@ public class CoinSystem : MonoBehaviour
         CurrentCoin = Mathf.Max(0, amount); //음수 방지
         OnCoinChanged?.Invoke(CurrentCoin);
     }
+
+   
+
+    
 }
