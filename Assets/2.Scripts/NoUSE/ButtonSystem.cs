@@ -10,7 +10,7 @@ public class ButtonSystem : MonoBehaviour
 {
     [SerializeField] private Image[] iconImages;
     private int currentIndex;
-
+    
     private void Start()
     {
         currentIndex = -1;
@@ -18,9 +18,13 @@ public class ButtonSystem : MonoBehaviour
         {
             iconImages[i].DOFade(0.5f,0f);
         }
+        
+      
     }
+    
 
-    public void ClickA()//선택
+     //버튼 3개로 조작시
+    private void ClickA()//선택
     {
         int prevIndex = currentIndex;
         
@@ -34,13 +38,13 @@ public class ButtonSystem : MonoBehaviour
         iconImages[currentIndex].DOFade(1f, 0f);
         
     }
-
-    public void ClickB()//확인
+    
+    private void ClickB()//확인
     {
         
     }
-
-    public void ClickC()//취소
+    
+    private void ClickC()//취소
     {
         currentIndex = -1;
         for (int i = 0; i < iconImages.Length; i++)
@@ -48,6 +52,5 @@ public class ButtonSystem : MonoBehaviour
             iconImages[i].DOFade(0.5f,0f);
         }
     }
-
     
 }
