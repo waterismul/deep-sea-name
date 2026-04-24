@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Baby
   m_EditorClassIdentifier: 
   stage: 0
-  maxFood: 3
-  maxHappiness: 3
+  maxHungerGauge: 10
+  maxHappinessGauge: 0

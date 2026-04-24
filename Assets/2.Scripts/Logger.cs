@@ -26,7 +26,7 @@ public class Logger : MonoBehaviour
         stateController.ChangeState(new PlayState());
     }
 
-    void OnEnable()
+    /*void OnEnable()
     {
         if(moodSystem != null)
             moodSystem.OnMoodChanged += OnMoodChanged;
@@ -49,7 +49,7 @@ public class Logger : MonoBehaviour
         
         if (coinSystem != null)
             coinSystem.OnCoinChanged -= OnCoinChanged;
-    }
+    }*/
 
     void OnMoodChanged(MoodType moodType)
     {

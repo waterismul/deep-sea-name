@@ -12,28 +12,26 @@ public class GrowthSystem : MonoBehaviour
 {
     public GrowthStage CurrentStage { get; private set; }
     
-    public int CurrentHunger { get; private set; }
-    public int MaxHunger { get; private set; }
+    public int CurrentHungerGauge { get; private set; } //현재 배고픔 게이지
+    public int MaxHungerGauge { get; private set; } // 현재 최대 배고픔 게이지
     
-    public int CurrentHappiness { get; private set; }
-    public int MaxHappiness { get; private set; }
+    public int CurrentHappinessGauge { get; private set; } // 현재 행복 게이지
+    public int MaxHappinessGauge { get; private set; } //현재 최대 행복 게이지
     
-    public event Action<GrowthStage> OnStageChanged;
+    //public event Action<GrowthStage> OnStageChanged;
     
     [SerializeField] private GrowthData[] stageDatas;
-
-    private void Start()
-    {
-        SetStage(GrowthStage.Baby);
-    }
+    
 
     public void SetStage(GrowthStage newStage)
     {
         if (CurrentStage == newStage)
             return;
         CurrentStage = newStage;
-        OnStageChanged?.Invoke(CurrentStage);
+        //OnStageChanged?.Invoke(CurrentStage);
+        OnChange(CurrentStage);
         Debug.Log($"현재 스테이지: {CurrentStage}");
+        Debug.Log($"현재 데이터 : {CurrentHungerGauge}");
         
     }
 
@@ -48,14 +46,14 @@ public class GrowthSystem : MonoBehaviour
         return null;
     }
     
-    void OnChange(GrowthStage stage)
+    private void OnChange(GrowthStage stage)
     {
         var data = GetCurrentStageData();
         
-        MaxHunger = data.maxHunger;
-        CurrentHunger = MaxHunger;
+        MaxHungerGauge = data.maxHungerGauge;
+        CurrentHungerGauge = MaxHungerGauge;
         
-        MaxHappiness = data.maxHappiness;
-        CurrentHappiness = MaxHappiness;
+        MaxHappinessGauge = data.maxHappinessGauge;
+        CurrentHappinessGauge = MaxHappinessGauge;
     }
 }

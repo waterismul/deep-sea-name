@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Adult
   m_EditorClassIdentifier: 
   stage: 3
-  maxFood: 9
-  maxHappiness: 9
+  maxHungerGauge: 10000
+  maxHappinessGauge: 0

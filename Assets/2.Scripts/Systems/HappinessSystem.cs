@@ -8,7 +8,7 @@ public class HappinessSystem : MonoBehaviour
    
    [FormerlySerializedAs("growthStageSystem")] [SerializeField] private GrowthSystem growthSystem;
 
-   void OnEnable()
+   /*void OnEnable()
    {
       growthSystem.OnStageChanged += OnChange;
    }
@@ -16,12 +16,12 @@ public class HappinessSystem : MonoBehaviour
    void OnDisable()
    {
       growthSystem.OnStageChanged -= OnChange;
-   }
+   }*/
 
    void OnChange(GrowthStage stage)
    {
       var data = growthSystem.GetCurrentStageData();
-      MaxHappiness = data.maxHappiness;
+      MaxHappiness = data.maxHappinessGauge;
       CurrentHappiness = MaxHappiness;
    }
 

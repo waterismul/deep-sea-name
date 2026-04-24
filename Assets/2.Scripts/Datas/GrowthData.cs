@@ -4,6 +4,6 @@ using UnityEngine;
 public class GrowthData : ScriptableObject
 {
     public GrowthStage stage;
-    public int maxHunger;
-    public int maxHappiness;
+    public int maxHungerGauge;
+    public int maxHappinessGauge;
 }

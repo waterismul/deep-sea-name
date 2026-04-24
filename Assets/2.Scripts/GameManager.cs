@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GrowthSystem growthSystem;
     [SerializeField] private MoodSystem moodSystem;
     [SerializeField] private CoinSystem coinSystem;
-    [SerializeField] private ButtonSystem buttonSystem;
+    [SerializeField] private HungerSystem hungerSystem;
     
     private void Start()
     {
@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
         Invoke(nameof(ToEat), 1f);
         Invoke(nameof(ToPlay), 3f);
         growthSystem.SetStage(GrowthStage.Adult);
+        
+        
     }
     
     
