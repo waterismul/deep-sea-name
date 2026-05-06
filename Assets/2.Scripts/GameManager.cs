@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
         Invoke(nameof(ToEat), 1f);
         Invoke(nameof(ToPlay), 3f);
         growthSystem.SetStage(GrowthStage.Adult);
+        Debug.Log($"현재 소지액 : {coinSystem.CurrentCoin}");
+        coinSystem.AddCoin(10000);
+        Debug.Log($"돈 10000원 추가 \n 현재 소지액 : {coinSystem.CurrentCoin}");
         
         
     }

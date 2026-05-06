@@ -9,7 +9,7 @@ public class CoinSystem : MonoBehaviour
 
     public void AddCoin(int amount)
     {
-        if (amount <= 0) return;
+        //if (amount <= 0) return;
         
         CurrentCoin += amount;
         OnCoinChanged?.Invoke(CurrentCoin);

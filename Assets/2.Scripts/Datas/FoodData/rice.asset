@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db1bef89b8388f64cbb412d1aec9c6ac, type: 3}
-  m_Name: candy
+  m_Name: rice
   m_EditorClassIdentifier: 
-  itemName: "\uC0AC\uD0D5"
-  hungerRestoreAmount: 77
+  itemName: "\uACE0\uBD09\uBC25"
+  hungerRestoreAmount: 100
   happinessIncreaseAmount: 0
-  price: 4000
+  price: 7777
   count: 0

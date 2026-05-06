@@ -11,20 +11,23 @@ public class UIManager : MonoBehaviour
     //UI Obj
     [SerializeField] private Text coinText;
 
+    //menu UI
     [SerializeField] private Toggle[] menuToggles;
     [SerializeField] private GameObject[] menuPanels;
 
+    
+    
 
     private void Start()
     {
         coinSystem.OnCoinUIChanged += ShowCoinText;
         ShowCoinText(coinSystem.CurrentCoin);
      
-        SetToggles();
+        SetMenuToggles();
     }
 
 
-    private void SetToggles()
+    private void SetMenuToggles()
     {
         for (int i = 0; i < menuToggles.Length; i++)
         {
@@ -50,7 +53,7 @@ public class UIManager : MonoBehaviour
     }
 
 
-    public void ClosePanel()
+    public void CloseMenuPanel()
     {
         for (int i = 0; i < menuPanels.Length; i++)
         {
