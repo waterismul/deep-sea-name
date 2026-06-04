@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CoinSystem coinSystem;
     [SerializeField] private HungerSystem hungerSystem;
     
+    
     private void Start()
     {
         stateController.ChangeState(new AroundState());

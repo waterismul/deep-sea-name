@@ -14,15 +14,14 @@ public class ShopItemSlot : MonoBehaviour
   
 
   [SerializeField] private ShopPurchaseController shopPurchaseController;
+  
 
+  public int CurrentCount { private set; get; }
   
   private void Start()
   {
     itemText.text = itemData.itemName;
     priceText.text = itemData.price.ToString();
-
-    
-
   }
 
   public void ClickItemSlot()
@@ -31,6 +30,11 @@ public class ShopItemSlot : MonoBehaviour
     {
       return itemData;
     };
+  }
+
+  public void AddCount()
+  {
+    CurrentCount++;
   }
   
   

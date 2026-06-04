@@ -17,6 +17,14 @@ public class CoinSystem : MonoBehaviour
         Debug.Log($"현재 소지액: {CurrentCoin}");
     }
 
+    public void ChargeCoin(int amount)
+    {
+        CurrentCoin -= amount;
+        OnCoinChanged?.Invoke(CurrentCoin);
+        OnCoinUIChanged?.Invoke(CurrentCoin);
+        Debug.Log($"현재 소지액: {CurrentCoin}");
+    }
+
     public bool SpendCoin(int amount)
     {
         if (amount <= 0) return false;

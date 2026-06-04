@@ -10,5 +10,4 @@ public class ItemData : ScriptableObject
     public int hungerRestoreAmount;
     public int happinessIncreaseAmount;
     public int price;
-    public int count;
 }
